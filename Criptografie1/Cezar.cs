@@ -31,17 +31,18 @@ namespace Criptografie1
             key = 3;
             StringBuilder solutie = new StringBuilder();
 
+            clear_text = clear_text.ToUpper();
             for (int i = 0; i < clear_text.Length; i++)
             {
                 int val = (int)(clear_text[i]);
-                if (val != ' ')
+                if (Char.IsLetter(clear_text[i]))
                 {
                     val = val + key;
                     val = Exces.EliminaExces(val);
                 }
                 solutie.Append((char)(val));
             }
-            return (solutie + "");
+            return solutie.ToString();
         }
 
     }

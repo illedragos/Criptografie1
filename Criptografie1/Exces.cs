@@ -8,19 +8,20 @@ namespace Criptografie1
 {
     class Exces
     {
+        /// <summary>
+        /// aduce pe val in intervalul 'A' - 'Z'
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
         public static int EliminaExces(int val)
         {
-            if (val > 90)
-            {
-                val = val % 90;
-                val = 65 + val - 1;
-            }
-            else if (val< 65)
-            {
-                val = 65 % val;
-                val = 90 + val - 1;
-            }
-            return val;
+            val = val - 'A';
+            if (val < 0)
+                val += 26;
+            else
+                val = val % 26;
+
+            return val + 'A';
         }
 
     }
